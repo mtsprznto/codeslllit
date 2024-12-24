@@ -6,6 +6,7 @@ from models.user import User
 from constantes import CORREO
 from utils.enviar_correo import enviar_correo
 
+import os
 
 st.title("Silencio Esperado")
 st.subheader("Codes Promocial")
@@ -53,6 +54,9 @@ def registro():
             else:
                 
                 try:
+                    # Crear la carpeta 'data' si no existe
+                    if not os.path.exists('data'):
+                        os.makedirs('data')
 
                     # Validar si el correo ya estan en la base de datos
                     
