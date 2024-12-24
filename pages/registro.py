@@ -3,10 +3,11 @@ from utils.validate import is_valid_email, is_valid_phone, is_valid_country,get_
 from utils.search_code import remove_code, remove_code_cloud
 from utils_bd.users import UserService
 from utils_bd.codes import CodesService
+from utils_bd.ip_address import IpAddressService
 from models.user import User
 from constantes import CORREO
 from utils.enviar_correo import enviar_correo
-from utils_bd.ip_address import IpAddressService
+
 
 
 import pandas as pd
@@ -107,6 +108,9 @@ def registro():
                                 code_canje.text_area("Guarda tu codigo de canje", value=code.code, height=100, disabled=True, help="Recuerda guardar tu codigo, ya que no se volvera a mostrar")
 
                                 st.link_button("Canjea tu codigo aqui!", "https://bandcamp.com/yum")
+
+                                #Eliminar el codigo de la base de datos
+                                CodesService.delete_code(code.code)
 
                             else:
                                 codes_respuesta.error("Lo siento, no hay más códigos disponibles.", icon="😢")
