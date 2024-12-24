@@ -2,7 +2,7 @@ import re
 import socket
 import pandas as pd
 import os
-
+from utils_bd.ip_address import IpAddressService
 
 def is_valid_email(email):
     email_pattern = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
@@ -49,19 +49,16 @@ def get_user_ip():
     return ip_address
 
 def is_unique_ip(ip_address):
-    # Verificar si el archivo existe
-    if not os.path.exists('data/redeemed_codes.csv'):
-        # Crear el archivo con las columnas necesarias si no existe
-        df = pd.DataFrame(columns=['ip_address'])
-        df.to_csv('data/redeemed_codes.csv', index=False)
-    
-    # Cargar el archivo CSV que contiene las IPs canjeadas
-    df = pd.read_csv('data/redeemed_codes.csv')
 
-    # Verificar si la dirección IP ya existe en el DataFrame
-    if ip_address in df['ip_address'].values:
+    # Llamar a IpAddressService para validar la IP en la base de datos
+    response = IpAddressService.validate_ip_address(ip_address)
+
+    # Si la respuesta contiene datos, significa que la IP ya está registrada
+    if response:
         return False
     return True
+
+    
 
 def save_redeemed_ip(ip_address):
     # Cargar el archivo CSV que contiene las IPs canjeadas

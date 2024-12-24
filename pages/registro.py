@@ -1,10 +1,15 @@
 import streamlit as st
 from utils.validate import is_valid_email, is_valid_phone, is_valid_country,get_user_ip, is_unique_ip, save_redeemed_ip
-from utils.search_code import remove_code
+from utils.search_code import remove_code, remove_code_cloud
 from utils_bd.users import UserService
+from utils_bd.codes import CodesService
 from models.user import User
 from constantes import CORREO
 from utils.enviar_correo import enviar_correo
+from utils_bd.ip_address import IpAddressService
+
+
+import pandas as pd
 
 import os
 
@@ -54,12 +59,8 @@ def registro():
             else:
                 
                 try:
-                    # Crear la carpeta 'data' si no existe
-                    if not os.path.exists('data'):
-                        os.makedirs('data')
-
-                    # Validar si el correo ya estan en la base de datos
                     
+                    # Validar si el correo ya estan en la base de datos
                     if UserService.validate_user_email(correo):
                         st.error("El correo ya esta registrado", icon="📧")
                         return
@@ -72,13 +73,22 @@ def registro():
                             st.error("Lo siento, ya has canjeado un código", icon="😢")
                             st.markdown(f"En el caso de que lo quieras recuperar tu codigo envia un correo a: {CORREO}")
                         else:
+                            
+
                             # Obtener un código de Bandcamp
-                            code = remove_code()
+                            code = CodesService.get_code()
+                            
+
+                            # Obtener un código de Bandcamp
+                            #code = remove_code()
 
                             if code:
-
+                                
                                 # Guardar la información de la IP canjeada
                                 save_redeemed_ip(ip_address)
+
+                                # Guardo la ip en mi base de datos
+                                IpAddressService.register_ip({"ip_address": ip_address})
 
                                 # Crear una instancia de la clase User
                                 user = User(nombre, apellido, telefono, correo, pais, comentario, code)
@@ -88,20 +98,21 @@ def registro():
                                 
                                 
                                 # Enviar el código por correo electrónico
-                                enviar_correo(correo, code)
+                                enviar_correo(correo, code.code)
                                 
                                 
                                 st.balloons()   
                                 codes_respuesta.success(f"Gracias por registrarte", icon="🚀")
 
-                                code_canje.text_area("Guarda tu codigo de canje", value=code, height=100, disabled=True, help="Recuerda guardar tu codigo, ya que no se volvera a mostrar")
+                                code_canje.text_area("Guarda tu codigo de canje", value=code.code, height=100, disabled=True, help="Recuerda guardar tu codigo, ya que no se volvera a mostrar")
 
                                 st.link_button("Canjea tu codigo aqui!", "https://bandcamp.com/yum")
+
                             else:
                                 codes_respuesta.error("Lo siento, no hay más códigos disponibles.", icon="😢")
                 
                 except Exception as e:
-                    st.error(f"Ocurrió un error al registrar al usuario. Error: {e}", icon="🚫")
+                    st.error(f"Ocurrió un error al registrar al usuario.", icon="🚫")
                     print(e)
 
                 

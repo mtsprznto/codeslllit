@@ -4,7 +4,9 @@ from config import supabase
 class UserService:
     @staticmethod
     def register_user(data):
+        #print(data)
         response = supabase.table("usuarios").insert(data).execute()
+        
         return response.data
     
     @staticmethod
@@ -15,5 +17,5 @@ class UserService:
     @staticmethod
     def validate_user_email(correo):
         response = supabase.table("usuarios").select("*").eq("correo", correo).execute()
-        print(response.data)
+        #print(response.data)
         return response.data
