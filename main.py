@@ -1,7 +1,7 @@
 import streamlit as st
 import pathlib
 
-st.set_page_config(page_title="LLLIT", initial_sidebar_state="collapsed", page_icon="assets/favicon.ico", layout="centered")
+st.set_page_config(page_title="LLLIT | Codes", initial_sidebar_state="collapsed", page_icon="assets/favicon.ico", layout="centered")
 
 # ----------------- Load CSS -----------------
 def load_css(file_path):
