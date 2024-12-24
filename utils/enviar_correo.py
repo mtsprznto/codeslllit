@@ -4,17 +4,14 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 import smtplib
-import base64
-from dotenv import load_dotenv
 import os
+import streamlit as st
 
 
-# Cargar variables de entorno desde el archivo .env
-load_dotenv()
 
 def enviar_correo(correo_destinatario, code):
-    remitente = os.getenv('EMAIL_USER')
-    codigo = os.getenv('EMAIL_PASSWORD')
+    remitente = st.secrets["email"]["EMAIL_USER"]
+    codigo = st.secrets["email"]["EMAIL_PASSWORD"]
 
     msg = MIMEMultipart()
     msg['From'] = remitente
