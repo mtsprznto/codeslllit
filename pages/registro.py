@@ -14,8 +14,11 @@ import pandas as pd
 
 import os
 
-st.title(":blue[SILENCIO ESPERADO]")
-st.subheader("Codes Promocial")
+st.image("assets/banner.png", width=720, channels='RGB')
+
+
+
+st.subheader("Codes Promocional")
 st.write("Para obtener tu codigo de bandcamp, rellena el siguiente formulario:")
 
 
