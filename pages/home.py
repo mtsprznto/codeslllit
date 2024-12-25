@@ -78,7 +78,7 @@ Manager of AfterHoursNeo and host of the AFT / HRS Radio program broadcast on Sa
 
 st.divider()
 st.markdown(f"""
-<p>En conjunto, estos colaboradores elevan la propuesta de LLLIT a un nivel superior, posicionando {enlace_track} como una experiencia sonora inmersiva e inolvidable. Próximamente disponible en todas las plataformas digitales.</p>
+<p>Together, these collaborators elevate LLLIT's proposal to a higher level, positioning {enlace_track} as an immersive and unforgettable sound experience. Soon available on all digital platforms.</p>
             
 """, unsafe_allow_html=True)
 st.markdown("""
