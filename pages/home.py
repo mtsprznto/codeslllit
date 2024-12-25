@@ -44,9 +44,10 @@ st.image("https://f4.bcbits.com/img/a1653011087_10.jpg")
 
 
 st.markdown(f"""
-<p>{enlace_track} es una album de LLLIT, que abraza un estimulante ánimo de experimentación sonora para transportar a los oyentes a un viaje único a través de 12 tracks. Este álbum combina sonidos envolventes y paisajes auditivos ricos en texturas.
+<p>{enlace_track} is an album by LLLIT, which embraces a stimulating mood of sonic experimentation to transport listeners on a unique journey through 12 tracks. This album combines immersive sounds and richly textured aural landscapes.
 
-El álbum no solo es un testimonio de la creatividad de LLLIT —quien además de ser el compositor principal es el creador de la carátula y responsable de todo el contenido multimedia—, sino también de la colaboración con figuras clave en el mundo del arte y la música
+The album is not only a testament to the creativity of LLLIT - who in addition to being the main composer is the creator of the cover art and responsible for all multimedia content - but also to the collaboration with key figures in the art and music world.
+
             
 > releases December 31, 2024</p>
 """, unsafe_allow_html=True)
@@ -62,7 +63,7 @@ st.subheader("Creditos:")
 
 st.markdown(f"""
 > <p style="color:{color_remarcar}">Florence Meuleman</p> 
-<p>Conocida como moiCflo, destaca como una emprendedora multifacética que lidera {enlace_ecunderground}, un sello dedicado a la música electrónica de calidad. Con una trayectoria que abarca relaciones públicas, programación audiovisual, diseño creativo y consultoría, Florence aporta su visión estratégica y artística para difundir este proyecto. Puedes explorar más sobre ella en su sitio web: {enlace_moicflo} </p>
+<p>Known as moiCflo, she stands out as a multi-faceted entrepreneur who leads {enlace_ecunderground}, a label dedicated to quality electronic music. With a background that spans public relations, audiovisual programming, creative design and consulting, Florence brings her strategic and artistic vision to spread the word about this project. You can explore more about her on her website: {enlace_moicflo} </p>
             
 """, unsafe_allow_html=True)
 
@@ -70,21 +71,22 @@ st.markdown(f"""
 st.markdown(f"""        
 > <p style="color:{color_remarcar};">Daniel Vargas</p>        
 <p>
-Encargado de AfterHoursNeo y anfitrión del programa AFT / HRS Radio que se transmite los sábados y domingos por Alternativa FM 100.3 ({enlace_aftherneo}), amplifica el alcance del álbum al sumarlo a la atmósfera íntima y dinámica que caracteriza el concepto de su programa. Su enfoque curatorial, orientado hacia el groove y los beats perfectos para los afterhours, resuena profundamente con los matices exploratorios de Silencio Esperado.
+Manager of AfterHoursNeo and host of the AFT / HRS Radio program broadcast on Saturdays and Sundays on Alternativa FM 100.3 ({enlace_aftherneo}), amplifies the album's scope by adding to the intimate and dynamic atmosphere that characterizes his program's concept. His curatorial approach, geared towards groove and beats perfect for afterhours, resonates deeply with the exploratory nuances of {enlace_track}.
 </p>
 """, unsafe_allow_html=True)
 
 
 st.divider()
-st.markdown("""
-
-En conjunto, estos colaboradores elevan la propuesta de LLLIT a un nivel superior, posicionando :blue[Silencio Esperado] como una experiencia sonora inmersiva e inolvidable. Próximamente disponible en todas las plataformas digitales.
+st.markdown(f"""
+<p>En conjunto, estos colaboradores elevan la propuesta de LLLIT a un nivel superior, posicionando {enlace_track} como una experiencia sonora inmersiva e inolvidable. Próximamente disponible en todas las plataformas digitales.</p>
             
-
+""", unsafe_allow_html=True)
+st.markdown("""
 > license
             
 #### © all rights reserved
 """)
+
 
 st.divider()
 st.subheader("PREVIEW")
@@ -99,7 +101,7 @@ st.markdown("""
 
 
 st.divider()
-st.page_link(page="pages/registro.py", icon="🎁", label="Obtener Codigo Promocional")
+st.page_link(page="pages/registro.py", icon="🎁", label="Get Promotional Code")
 
 
 

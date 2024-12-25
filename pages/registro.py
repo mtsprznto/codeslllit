@@ -18,8 +18,8 @@ st.image("assets/banner.png", width=720, channels='RGB')
 
 
 
-st.subheader("Codes Promocional")
-st.write("Para obtener tu codigo de bandcamp, rellena el siguiente formulario:")
+st.subheader("Promotional Code")
+st.write("To get your bandcamp code, fill out the form below:")
 
 
 def registro():
@@ -27,15 +27,15 @@ def registro():
 
     with st.form(key="form"):
 
-        nombre = st.text_input("Nombre")
-        apellido = st.text_input("Apellido")
-        telefono = st.text_input("Numero de telefono", help="Incluye el codigo de area", placeholder="56XXXXXXXX")
-        correo = st.text_input("Email", help="Ingresa un correo valido", placeholder="correo@correo.com")
-        pais = st.text_input("Pais", help="Escribe la primera letra en mayuscula", placeholder="Chile, Mexico, Argentina, United States")
-        comentario = st.text_area("Comentario", help="Dejanos un mensaje", max_chars=200)
+        nombre = st.text_input("Name")
+        apellido = st.text_input("Last name")
+        telefono = st.text_input("Phone number", help="Includes area code", placeholder="56XXXXXXXX")
+        correo = st.text_input("Email", help="Enter a valid email address", placeholder="correo@correo.com")
+        pais = st.text_input("Country", help="Type the first letter in capital letters", placeholder="Chile, Mexico, Argentina, United States")
+        comentario = st.text_area("Comment", help="Leave us a message", max_chars=200)
 
 
-        submit_button = st.form_submit_button(label="Enviar", type='secondary')
+        submit_button = st.form_submit_button(label="Send to", type='secondary')
 
         st.divider()
 
@@ -46,27 +46,30 @@ def registro():
         if submit_button:
             if not nombre or not apellido or not correo or not telefono or not pais or not comentario :
 
-                st.error("Por favor, complete todos los campos antes de enviar el formulario.", icon="🛸")
+                st.error("Please complete all fields before submitting the form.", icon="🛸")
                 
             elif any(char.isdigit() for char in nombre) or any(char.isdigit() for char in apellido):
-                st.error("Nombre/Apellido tienen que ser validos", icon='🚫')
+                st.error("First Name/Last Name must be valid", icon='🚫')
 
             elif not is_valid_email(correo):
-                st.error("Por favor, ingrese un correo válido.", icon="📧")
+                st.error("Please enter a valid email address.", icon="📧")
             
             elif not telefono.isnumeric():
-                st.error("Por favor, ingrese un numero de telefono valido", icon='📞')
+                st.error("Please, enter a valid phone number", icon='📞')
+
             elif not is_valid_phone(telefono):
-                st.error("Por favor, ingrese un numero de telefono valido", icon='📞')
+                st.error("Please, enter a valid phone number", icon='📞')
+            
             elif not is_valid_country(pais):
-                st.error("Por favor, ingrese un pais valido", icon='🌍')
+                st.error("Please enter a valid country", icon='🌍')
+            
             else:
                 
                 try:
                     
                     # Validar si el correo ya estan en la base de datos
                     if UserService.validate_user_email(correo):
-                        st.error("El correo ya esta registrado", icon="📧")
+                        st.error("The email is already registered", icon="📧")
                         return
                     else:
                         # Obtener la IP del usuario
@@ -74,17 +77,14 @@ def registro():
                         
                         # Validar si la IP ya está en la base de datos
                         if not is_unique_ip(ip_address):
-                            st.error("Lo siento, ya has canjeado un código", icon="😢")
-                            st.markdown(f"En el caso de que lo quieras recuperar tu codigo envia un correo a: {CORREO}")
+                            st.error("Sorry, you have already redeemed a code.", icon="😢")
+                            st.markdown(f"In case you want to recover your code send an email to: {CORREO}")
                         else:
                             
 
                             # Obtener un código de Bandcamp
                             code = CodesService.get_code()
                             
-
-                            # Obtener un código de Bandcamp
-                            #code = remove_code()
 
                             if code:
                                 
@@ -106,20 +106,20 @@ def registro():
                                 
                                 
                                 st.balloons()   
-                                codes_respuesta.success(f"Gracias por registrarte", icon="🚀")
+                                codes_respuesta.success(f"Thank you for registering", icon="🚀")
 
-                                code_canje.text_area("Guarda tu codigo de canje", value=code.code, height=100, disabled=True, help="Recuerda guardar tu codigo, ya que no se volvera a mostrar")
+                                code_canje.text_area("Save your redemption code", value=code.code, height=100, disabled=True, help="Remember to save your code, as it will not be displayed again.")
 
-                                st.link_button("Canjea tu codigo aqui!", "https://lllit3.bandcamp.com/yum")
+                                st.link_button("Redeem your code here!", "https://lllit3.bandcamp.com/yum")
 
                                 #Eliminar el codigo de la base de datos
                                 CodesService.delete_code(code.code)
 
                             else:
-                                codes_respuesta.error("Lo siento, no hay más códigos disponibles.", icon="😢")
+                                codes_respuesta.error("Sorry, there are no more codes available.", icon="😢")
                 
                 except Exception as e:
-                    st.error(f"Ocurrió un error al registrar al usuario.", icon="🚫")
+                    st.error(f"An error occurred while registering the user.", icon="🚫")
                     print(e)
 
                 
