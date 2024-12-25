@@ -14,7 +14,7 @@ import pandas as pd
 
 import os
 
-st.title("Silencio Esperado")
+st.title(":blue[SILENCIO ESPERADO]")
 st.subheader("Codes Promocial")
 st.write("Para obtener tu codigo de bandcamp, rellena el siguiente formulario:")
 

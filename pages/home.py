@@ -2,7 +2,7 @@ import streamlit as st
 
 from constantes import *
 
-st.title("SILENCIO ESPERADO")
+st.title(":blue[SILENCIO ESPERADO]")
 
 
 
@@ -35,6 +35,7 @@ En conjunto, estos colaboradores elevan la propuesta de LLLIT a un nivel superio
             
 #### © all rights reserved
 """)
+
 
 st.divider()
 st.page_link(page="pages/registro.py", icon="🎁", label="Obtener Codigo Promocional")
