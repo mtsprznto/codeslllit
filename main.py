@@ -37,4 +37,8 @@ pg = st.navigation(
     expanded=True
 )
 
+st.logo("https://proton-label-logos.storage.googleapis.com/700/2555571_3641_700.jpg")
+
+st.sidebar.markdown('<div style="text-align: center;">LLLIT | Codes 💿</div>', unsafe_allow_html=True)
+#st.sidebar.image("https://proton-label-logos.storage.googleapis.com/700/2555571_3641_700.jpg", width=100)
 pg.run()
