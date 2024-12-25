@@ -18,7 +18,7 @@ load_css(css_path)
 
 home_page =st.Page(
     page="pages/home.py",
-    title="Album Info",
+    title="Silencio Esperado",
     icon="💿",
     default=True
 )

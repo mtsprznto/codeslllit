@@ -107,7 +107,7 @@ def registro():
 
                                 code_canje.text_area("Guarda tu codigo de canje", value=code.code, height=100, disabled=True, help="Recuerda guardar tu codigo, ya que no se volvera a mostrar")
 
-                                st.link_button("Canjea tu codigo aqui!", "https://bandcamp.com/yum")
+                                st.link_button("Canjea tu codigo aqui!", "https://lllit3.bandcamp.com/yum")
 
                                 #Eliminar el codigo de la base de datos
                                 CodesService.delete_code(code.code)
