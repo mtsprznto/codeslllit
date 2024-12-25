@@ -61,7 +61,7 @@ Encargado de AfterHoursNeo y anfitrión del programa AFT / HRS Radio que se tran
 st.divider()
 st.markdown("""
 
-En conjunto, estos colaboradores elevan la propuesta de LLLIT a un nivel superior, posicionando :blue[Silencio Esperado] como una experiencia sonora inmersiva e inolvidable. Próximamente disponible en todas las plataformas digitales, este álbum promete ser un hito en la música experimental.
+En conjunto, estos colaboradores elevan la propuesta de LLLIT a un nivel superior, posicionando :blue[Silencio Esperado] como una experiencia sonora inmersiva e inolvidable. Próximamente disponible en todas las plataformas digitales.
             
 
 > license
