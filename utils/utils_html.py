@@ -1,0 +1,1 @@
+# Aqui iran todos las funciones que retornen html

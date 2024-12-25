@@ -10,8 +10,25 @@ color_link = "#8cbcb1"
 color_verde = "#008000"
 color_naranja = "#FFA500"
 
-enlace_html = f'<a href="https://lllit3.bandcamp.com/album/silencio-esperado" style="text-decoration: none; color: {color_link};">Silencio Esperado</a>'
 
+def link_button_html(titulo, link):
+    enlace = f'<a href={link} style="text-decoration: none; color: {color_link};">{titulo}</a>'
+
+    return enlace
+
+
+enlace_track = link_button_html(link="https://lllit3.bandcamp.com/album/silencio-esperado",titulo="Silencio Esperado")
+
+
+
+# Link Variables
+
+enlace_moicflo = link_button_html(link="https://www.moicflo.com/",titulo="Moicflo")
+
+
+enlace_ecunderground = link_button_html(link="https://www.ecunderground.com/", titulo="EC Underground")
+
+enlace_aftherneo = link_button_html(link="https://soundcloud.com/neonites",titulo="AfterHoursNeo")
 
 # -----------------------------
 
@@ -27,11 +44,11 @@ st.image("https://f4.bcbits.com/img/a1653011087_10.jpg")
 
 
 st.markdown(f"""
-{enlace_html} es una album de LLLIT, que abraza un estimulante ánimo de experimentación sonora para transportar a los oyentes a un viaje único a través de 12 tracks. Este álbum combina sonidos envolventes y paisajes auditivos ricos en texturas.
+<p>{enlace_track} es una album de LLLIT, que abraza un estimulante ánimo de experimentación sonora para transportar a los oyentes a un viaje único a través de 12 tracks. Este álbum combina sonidos envolventes y paisajes auditivos ricos en texturas.
 
 El álbum no solo es un testimonio de la creatividad de LLLIT —quien además de ser el compositor principal es el creador de la carátula y responsable de todo el contenido multimedia—, sino también de la colaboración con figuras clave en el mundo del arte y la música
             
-> releases December 31, 2024
+> releases December 31, 2024</p>
 """, unsafe_allow_html=True)
 
 
@@ -45,7 +62,7 @@ st.subheader("Creditos:")
 
 st.markdown(f"""
 > <p style="color:{color_remarcar}">Florence Meuleman</p> 
-<p style="">Conocida como moiCflo, destaca como una emprendedora multifacética que lidera EcuUnderground (ecunderground.com), un sello dedicado a la música electrónica de calidad. Con una trayectoria que abarca relaciones públicas, programación audiovisual, diseño creativo y consultoría, Florence aporta su visión estratégica y artística para difundir este proyecto. Puedes explorar más sobre ella en su sitio web: [Moicflo](www.moicflo.com) </p>
+<p>Conocida como moiCflo, destaca como una emprendedora multifacética que lidera {enlace_ecunderground}, un sello dedicado a la música electrónica de calidad. Con una trayectoria que abarca relaciones públicas, programación audiovisual, diseño creativo y consultoría, Florence aporta su visión estratégica y artística para difundir este proyecto. Puedes explorar más sobre ella en su sitio web: {enlace_moicflo} </p>
             
 """, unsafe_allow_html=True)
 
@@ -53,7 +70,7 @@ st.markdown(f"""
 
 st.markdown(f"""        
 > <p style="color:{color_remarcar};">Daniel Vargas</p>        
-Encargado de AfterHoursNeo y anfitrión del programa AFT / HRS Radio que se transmite los sábados y domingos por Alternativa FM 100.3 (soundcloud.com/neonites), amplifica el alcance del álbum al sumarlo a la atmósfera íntima y dinámica que caracteriza el concepto de su programa. Su enfoque curatorial, orientado hacia el groove y los beats perfectos para los afterhours, resuena profundamente con los matices exploratorios de Silencio Esperado.
+<p>Encargado de AfterHoursNeo y anfitrión del programa AFT / HRS Radio que se transmite los sábados y domingos por Alternativa FM 100.3 ({enlace_aftherneo}), amplifica el alcance del álbum al sumarlo a la atmósfera íntima y dinámica que caracteriza el concepto de su programa. Su enfoque curatorial, orientado hacia el groove y los beats perfectos para los afterhours, resuena profundamente con los matices exploratorios de Silencio Esperado.
 </p>
 """, unsafe_allow_html=True)
 
