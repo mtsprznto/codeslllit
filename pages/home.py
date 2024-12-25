@@ -13,7 +13,7 @@ st.image("https://f4.bcbits.com/img/a1653011087_10.jpg")
 
 
 st.markdown("""
-**Silencio Esperado** es una album de LLLIT, que abraza un estimulante ánimo de experimentación sonora para transportar a los oyentes a un viaje único a través de 12 tracks. Este álbum combina sonidos envolventes y paisajes auditivos ricos en texturas, mostrando un enfoque audaz hacia la innovación musical.
+**Silencio Esperado** es una album de LLLIT, que abraza un estimulante ánimo de experimentación sonora para transportar a los oyentes a un viaje único a través de 12 tracks. Este álbum combina sonidos envolventes y paisajes auditivos ricos en texturas.
 
 El álbum no solo es un testimonio de la creatividad de LLLIT —quien además de ser el compositor principal es el creador de la carátula y responsable de todo el contenido multimedia—, sino también de la colaboración con figuras clave en el mundo del arte y la música
             
@@ -28,7 +28,7 @@ st.markdown("""
 **Daniel Vargas**, encargado de AfterHoursNeo y anfitrión del programa AFT / HRS Radio que se transmite los sábados y domingos por Alternativa FM 100.3 (soundcloud.com/neonites), amplifica el alcance del álbum al sumarlo a la atmósfera íntima y dinámica que caracteriza el concepto de su programa. Su enfoque curatorial, orientado hacia el groove y los beats perfectos para los afterhours, resuena profundamente con los matices exploratorios de Silencio Esperado.
 
 
-En conjunto, estos colaboradores elevan la propuesta de LLLIT a un nivel superior, posicionando Silencio Esperado como una experiencia sonora inmersiva e inolvidable. Próximamente disponible en todas las plataformas digitales, este álbum promete ser un hito en la música experimental.
+En conjunto, estos colaboradores elevan la propuesta de LLLIT a un nivel superior, posicionando :blue[Silencio Esperado] como una experiencia sonora inmersiva e inolvidable. Próximamente disponible en todas las plataformas digitales, este álbum promete ser un hito en la música experimental.
             
 
 > license
