@@ -4,11 +4,9 @@ from constantes import *
 
 # ---- Contantes ----
 color_remarcar = "#649d91"
-
 color_link = "#8cbcb1"
 
-color_verde = "#008000"
-color_naranja = "#FFA500"
+
 
 
 def link_button_html(titulo, link):
@@ -17,11 +15,13 @@ def link_button_html(titulo, link):
     return enlace
 
 
-enlace_track = link_button_html(link="https://lllit3.bandcamp.com/album/silencio-esperado",titulo="Silencio Esperado")
 
 
 
 # Link Variables
+
+enlace_track = link_button_html(link="https://lllit3.bandcamp.com/album/silencio-esperado",titulo="Silencio Esperado")
+
 
 enlace_moicflo = link_button_html(link="https://www.moicflo.com/",titulo="Moicflo")
 
@@ -66,11 +66,11 @@ st.markdown(f"""
             
 """, unsafe_allow_html=True)
 
-# st.markdown(f'<p style="color:{color_verde};">Florence Meuleman</p>', unsafe_allow_html=True)
 
 st.markdown(f"""        
 > <p style="color:{color_remarcar};">Daniel Vargas</p>        
-<p>Encargado de AfterHoursNeo y anfitrión del programa AFT / HRS Radio que se transmite los sábados y domingos por Alternativa FM 100.3 ({enlace_aftherneo}), amplifica el alcance del álbum al sumarlo a la atmósfera íntima y dinámica que caracteriza el concepto de su programa. Su enfoque curatorial, orientado hacia el groove y los beats perfectos para los afterhours, resuena profundamente con los matices exploratorios de Silencio Esperado.
+<p>
+Encargado de AfterHoursNeo y anfitrión del programa AFT / HRS Radio que se transmite los sábados y domingos por Alternativa FM 100.3 ({enlace_aftherneo}), amplifica el alcance del álbum al sumarlo a la atmósfera íntima y dinámica que caracteriza el concepto de su programa. Su enfoque curatorial, orientado hacia el groove y los beats perfectos para los afterhours, resuena profundamente con los matices exploratorios de Silencio Esperado.
 </p>
 """, unsafe_allow_html=True)
 
