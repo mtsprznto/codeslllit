@@ -71,6 +71,7 @@ def registro():
                     if UserService.validate_user_email(correo):
                         st.error("The email is already registered", icon="📧")
                         return
+                    
                     else:
                         # Obtener la IP del usuario
                         ip_address = get_user_ip()
