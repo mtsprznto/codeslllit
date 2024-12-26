@@ -90,7 +90,7 @@ def registro():
                             if code:
                                 
                                 # Guardar la información de la IP canjeada
-                                save_redeemed_ip(ip_address)
+                                #save_redeemed_ip(ip_address)
 
                                 # Guardo la ip en mi base de datos
                                 IpAddressService.register_ip({"ip_address": ip_address})
@@ -120,7 +120,7 @@ def registro():
                                 codes_respuesta.error("Sorry, there are no more codes available.", icon="😢")
                 
                 except Exception as e:
-                    st.error(f"An error occurred while registering the user. Error: {e}", icon="🚫")
+                    st.error(f"An error occurred while registering the user.", icon="🚫")
                     print(e)
 
                 
