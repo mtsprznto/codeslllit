@@ -96,7 +96,7 @@ def registro():
                                 IpAddressService.register_ip({"ip_address": ip_address})
 
                                 # Crear una instancia de la clase User
-                                user = User(nombre, apellido, telefono, correo, pais, comentario, code)
+                                user = User(nombre, apellido, telefono, correo, pais, comentario, code.code)
 
                                 # Registrar al usuario en la base de datos
                                 UserService.register_user(user.to_dict())
