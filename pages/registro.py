@@ -120,7 +120,7 @@ def registro():
                                 codes_respuesta.error("Sorry, there are no more codes available.", icon="😢")
                 
                 except Exception as e:
-                    st.error(f"An error occurred while registering the user.", icon="🚫")
+                    st.error(f"An error occurred while registering the user. Error: {e}", icon="🚫")
                     print(e)
 
                 
