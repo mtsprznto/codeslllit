@@ -54,14 +54,14 @@ def registro():
             elif not is_valid_email(correo):
                 st.error("Please enter a valid email address.", icon="📧")
             
-            elif not telefono.isnumeric():
-                st.error("Please, enter a valid phone number", icon='📞')
-
-            elif not is_valid_phone(telefono):
-                st.error("Please, enter a valid phone number", icon='📞')
+            # elif not telefono.isnumeric():
+            #     st.error("Please, enter a valid phone number", icon='📞')
+            #     st.error("")
+            # elif not is_valid_phone(telefono):
+            #     st.error("Please, enter a valid phone number", icon='📞')
             
-            elif not is_valid_country(pais):
-                st.error("Please enter a valid country", icon='🌍')
+            # elif not is_valid_country(pais):
+            #     st.error("Please enter a valid country", icon='🌍')
             
             else:
                 
