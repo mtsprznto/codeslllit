@@ -3,6 +3,8 @@ import socket
 import pandas as pd
 import os
 from utils_bd.ip_address import IpAddressService
+import requests
+
 
 def is_valid_email(email):
     email_pattern = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
@@ -44,8 +46,12 @@ def is_valid_country(pais):
 
 
 def get_user_ip():
-    hostname = socket.gethostname()
-    ip_address = socket.gethostbyname(hostname)
+    try:
+        response = requests.get('https://api.ipify.org?format=json')
+        ip_address = response.json()['ip']
+    except requests.RequestException as e:
+        print(f"Error al obtener la dirección IP pública: {e}")
+        ip_address = None
     return ip_address
 
 def is_unique_ip(ip_address):
