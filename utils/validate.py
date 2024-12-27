@@ -58,7 +58,7 @@ def is_unique_ip(ip_address):
 
     # Llamar a IpAddressService para validar la IP en la base de datos
     response = IpAddressService.validate_ip_address(ip_address)
-
+    print("Is unique: ",response)
     # Si la respuesta contiene datos, significa que la IP ya está registrada
     if response:
         return False

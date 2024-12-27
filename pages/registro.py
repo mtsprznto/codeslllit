@@ -75,11 +75,12 @@ def registro():
                     else:
                         # Obtener la IP del usuario
                         ip_address = get_user_ip()
-                        
+                        print("IP ADDRESS: ",ip_address)
                         # Validar si la IP ya está en la base de datos
                         if not is_unique_ip(ip_address):
                             st.error("Sorry, you have already redeemed a code.", icon="😢")
                             st.markdown(f"In case you want to recover your code send an email to: {CORREO}")
+
                         else:
                             
 
@@ -95,6 +96,8 @@ def registro():
                                 # Guardo la ip en mi base de datos
                                 IpAddressService.register_ip({"ip_address": ip_address})
 
+
+                                
                                 # Crear una instancia de la clase User
                                 user = User(nombre, apellido, telefono, correo, pais, comentario, code.code)
 
@@ -120,7 +123,7 @@ def registro():
                                 codes_respuesta.error("Sorry, there are no more codes available.", icon="😢")
                 
                 except Exception as e:
-                    st.error(f"An error occurred while registering the user.", icon="🚫")
+                    st.error(f"An error occurred while registering the user. Error: {e}", icon="🚫")
                     print(e)
 
                 

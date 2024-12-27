@@ -16,5 +16,5 @@ class User:
             "correo": self.correo,
             "pais": self.pais,
             "comentario": self.comentario,
-            "code": self.code.to_dict() if self.code else None
+            "code": self.code  # Asumimos que self.code es una cadena de texto
         }
