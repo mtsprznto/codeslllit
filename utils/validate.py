@@ -61,7 +61,10 @@ def is_unique_ip(ip_address):
     print("Is unique: ",response)
     # Si la respuesta contiene datos, significa que la IP ya está registrada
     if response:
+        print("Esta registrado")
         return False
+
+    print("No esta registrado")
     return True
 
     
