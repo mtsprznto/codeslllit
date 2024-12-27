@@ -47,8 +47,9 @@ def is_valid_country(pais):
 
 def get_user_ip():
     try:
-        response = requests.get('https://api.ipify.org?format=json')
+        response = requests.get('https://ipinfo.io/json')
         ip_address = response.json()['ip']
+        print("La ip publica es: ",ip_address)
     except requests.RequestException as e:
         print(f"Error al obtener la dirección IP pública: {e}")
         ip_address = None
