@@ -19,3 +19,11 @@ class UserService:
         response = supabase.table("usuarios").select("*").eq("correo", correo).execute()
         #print(response.data)
         return response.data
+    
+    @staticmethod
+    def get_user_by_id(user_id):
+        response = supabase.table("usuarios").select("*").eq("id", user_id).execute()
+        if response.data:
+            return response.data[0]
+        else:
+            return None

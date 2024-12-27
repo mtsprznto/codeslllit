@@ -5,6 +5,9 @@ import os
 from utils_bd.ip_address import IpAddressService
 import requests
 import uuid
+import streamlit as st
+import requests
+
 
 def is_valid_email(email):
     email_pattern = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
@@ -68,7 +71,10 @@ def is_unique_ip(ip_address):
     print("No esta registrado")
     return True
 
-    
+
+
+
+
 
 def save_redeemed_ip(ip_address):
 
@@ -83,8 +89,48 @@ def save_redeemed_ip(ip_address):
     df.to_csv('data/redeemed_codes.csv', index=False)
 
 
+
+
+
+
+
+# Función para obtener la IP del cliente desde las cookies
+def get_client_ip():
+    client_ip = st.query_params.get('client_ip', [None])[0]
+    return client_ip
+
+
+
+def get_client_ip_header():
+    # Intenta obtener la IP del cliente desde los encabezados HTTP
+    headers = st.query_params
+    client_ip = headers.get('X-Forwarded-For', [None])[0]
+    if not client_ip:
+        client_ip = headers.get('REMOTE_ADDR', [None])[0]
+    return client_ip
+
+
+
+
 # ----- OBTENER COOCKIES --------
 
 def get_unique_id():
     response = str(uuid.uuid4())
     return response
+
+
+
+
+# ------ UNIQUE ID SECTION --------
+
+def is_unique_id(unique_id):
+    # Llamar a IpAddressService para validar el identificador único en la base de datos
+    response = IpAddressService.validate_unique_id(unique_id)
+    print(f"Is unique: {response}")
+    # Si la respuesta contiene datos, significa que el identificador único ya está registrado
+    if response:
+        print("Esta registrado")
+        return False
+
+    print("No esta registrado")
+    return True

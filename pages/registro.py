@@ -1,6 +1,5 @@
 import streamlit as st
-from utils.validate import is_valid_email, is_valid_phone, is_valid_country,get_user_ip, is_unique_ip, save_redeemed_ip
-from utils.search_code import remove_code, remove_code_cloud
+from utils.validate import is_valid_email,get_user_ip,is_unique_id
 from utils_bd.users import UserService
 from utils_bd.codes import CodesService
 from utils_bd.ip_address import IpAddressService
@@ -8,11 +7,20 @@ from models.user import User
 from constantes import CORREO
 from utils.enviar_correo import enviar_correo
 
-
+from streamlit_cookies_manager import EncryptedCookieManager
+import uuid
+import httpagentparser
 
 import pandas as pd
 
 import os
+
+
+
+from dotenv import load_dotenv
+
+
+load_dotenv()
 
 st.image("assets/banner.png", width=720, channels='RGB')
 
@@ -21,6 +29,21 @@ st.image("assets/banner.png", width=720, channels='RGB')
 st.subheader("Promotional Code")
 st.write("To get your bandcamp code, fill out the form below:")
 
+
+cookie_password = os.getenv('COOKIE_PASSWORD')
+
+
+
+# Inicializar el gestor de cookies
+cookies = EncryptedCookieManager(prefix="lllitcodes", password=cookie_password)
+
+# Declarar el componente para obtener el User-Agent
+def get_user_agent():
+    return st.session_state.get('user_agent', '')
+
+# Función para obtener la IP del usuario
+def get_user_ip():
+    return st.session_state.get('user_ip', '')
 
 def registro():
 
@@ -67,19 +90,53 @@ def registro():
                 
                 try:
                     
+                    
+
+                    # Asegurarse de que las cookies están disponibles
+                    if not cookies.ready():
+                        st.stop()
+
+                    # Obtener o generar un identificador único
+                    if 'unique_id' not in cookies:
+                        cookies['unique_id'] = str(uuid.uuid4())
+                        cookies.save()
+
+                    unique_id = cookies['unique_id']
+
+                    # Obtener el User-Agent del navegador
+                    user_agent = get_user_agent()
+                    parsed_agent = httpagentparser.detect(user_agent)
+
+
+                    
+
+                    
                     # Validar si el correo ya estan en la base de datos
                     if UserService.validate_user_email(correo):
                         st.error("The email is already registered", icon="📧")
                         return
                     
                     else:
+
+
                         # Obtener la IP del usuario
                         ip_address = get_user_ip()
                         print("IP ADDRESS: ",ip_address)
-                        # Validar si la IP ya está en la base de datos
-                        if not is_unique_ip(ip_address):
+
+                        # Combinar IP y User-Agent para crear un identificador único
+                        unique_identifier = f"{ip_address}_{parsed_agent}"
+                        print(f"Unique identifier: {unique_identifier}")
+
+
+                        if not is_unique_id(unique_id):
                             st.error("Sorry, you have already redeemed a code.", icon="😢")
                             st.markdown(f"In case you want to recover your code send an email to: {CORREO}")
+
+
+                        # Validar si la IP ya está en la base de datos
+                        # if not is_unique_ip(ip_address):
+                        #     st.error("Sorry, you have already redeemed a code.", icon="😢")
+                        #     st.markdown(f"In case you want to recover your code send an email to: {CORREO}")
 
                         else:
                             
@@ -94,7 +151,8 @@ def registro():
                                 #save_redeemed_ip(ip_address)
 
                                 # Guardo la ip en mi base de datos
-                                IpAddressService.register_ip({"ip_address": ip_address})
+                                #IpAddressService.register_ip({"ip_address": ip_address})
+                                IpAddressService.register_user_ip_data({"unique_id": unique_id, "user_agent": parsed_agent})
 
 
                                 
