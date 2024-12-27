@@ -4,6 +4,7 @@ from config import supabase
 class IpAddressService:
     @staticmethod
     def register_ip(data):
+        print(f"Data IP REGISTER: {data}")
         response = supabase.table("ipaddress").insert(data).execute()
         return response.data
     

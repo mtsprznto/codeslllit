@@ -4,7 +4,7 @@ import pandas as pd
 import os
 from utils_bd.ip_address import IpAddressService
 import requests
-
+import uuid
 
 def is_valid_email(email):
     email_pattern = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
@@ -70,6 +70,7 @@ def is_unique_ip(ip_address):
     
 
 def save_redeemed_ip(ip_address):
+
     # Cargar el archivo CSV que contiene las IPs canjeadas
     df = pd.read_csv('data/redeemed_codes.csv')
 
@@ -79,3 +80,10 @@ def save_redeemed_ip(ip_address):
 
     # Guardar el DataFrame actualizado de nuevo en el archivo CSV
     df.to_csv('data/redeemed_codes.csv', index=False)
+
+
+# ----- OBTENER COOCKIES --------
+
+def get_unique_id():
+    response = str(uuid.uuid4())
+    return response
