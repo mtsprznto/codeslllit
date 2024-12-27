@@ -30,7 +30,7 @@ st.subheader("Promotional Code")
 st.write("To get your bandcamp code, fill out the form below:")
 
 
-cookie_password = os.getenv('COOKIE_PASSWORD')
+cookie_password = st.secrets["cookies"]["COOKIE_PASSWORD"]
 
 
 
@@ -38,7 +38,16 @@ cookie_password = os.getenv('COOKIE_PASSWORD')
 cookies = EncryptedCookieManager(prefix="lllitcodes", password=cookie_password)
 
 
+# Asegurarse de que las cookies están disponibles
+if not cookies.ready():
+    st.stop()
 
+# Obtener o generar un identificador único
+if 'unique_id' not in cookies:
+    cookies['unique_id'] = str(uuid.uuid4())
+    cookies.save()
+    
+unique_id = cookies['unique_id']
 
 
 def registro():
@@ -81,16 +90,7 @@ def registro():
                     
                     
 
-                    # Asegurarse de que las cookies están disponibles
-                    if not cookies.ready():
-                        st.stop()
-
-                    # Obtener o generar un identificador único
-                    if 'unique_id' not in cookies:
-                        cookies['unique_id'] = str(uuid.uuid4())
-                        cookies.save()
-
-                    unique_id = cookies['unique_id']
+                    
 
                     
 
