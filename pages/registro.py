@@ -37,13 +37,9 @@ cookie_password = os.getenv('COOKIE_PASSWORD')
 # Inicializar el gestor de cookies
 cookies = EncryptedCookieManager(prefix="lllitcodes", password=cookie_password)
 
-# Declarar el componente para obtener el User-Agent
-def get_user_agent():
-    return st.session_state.get('user_agent', '')
 
-# Función para obtener la IP del usuario
-def get_user_ip():
-    return st.session_state.get('user_ip', '')
+
+
 
 def registro():
 
@@ -77,14 +73,7 @@ def registro():
             elif not is_valid_email(correo):
                 st.error("Please enter a valid email address.", icon="📧")
             
-            # elif not telefono.isnumeric():
-            #     st.error("Please, enter a valid phone number", icon='📞')
-            #     st.error("")
-            # elif not is_valid_phone(telefono):
-            #     st.error("Please, enter a valid phone number", icon='📞')
             
-            # elif not is_valid_country(pais):
-            #     st.error("Please enter a valid country", icon='🌍')
             
             else:
                 
@@ -103,11 +92,6 @@ def registro():
 
                     unique_id = cookies['unique_id']
 
-                    # Obtener el User-Agent del navegador
-                    user_agent = get_user_agent()
-                    parsed_agent = httpagentparser.detect(user_agent)
-
-
                     
 
                     
@@ -117,15 +101,6 @@ def registro():
                         return
                     
                     else:
-
-
-                        # Obtener la IP del usuario
-                        ip_address = get_user_ip()
-                        print("IP ADDRESS: ",ip_address)
-
-                        # Combinar IP y User-Agent para crear un identificador único
-                        unique_identifier = f"{ip_address}_{parsed_agent}"
-                        print(f"Unique identifier: {unique_identifier}")
 
 
                         if not is_unique_id(unique_id):
@@ -152,7 +127,7 @@ def registro():
 
                                 # Guardo la ip en mi base de datos
                                 #IpAddressService.register_ip({"ip_address": ip_address})
-                                IpAddressService.register_user_ip_data({"unique_id": unique_id, "user_agent": parsed_agent})
+                                IpAddressService.register_user_ip_data({"unique_id": unique_id})
 
 
                                 

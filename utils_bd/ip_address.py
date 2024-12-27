@@ -23,10 +23,16 @@ class IpAddressService:
     
     # -------- UNIQUE ID SECTION --------
     
+
+
+
+
+
+    
     @staticmethod
     def register_unique_id(data):
-        response = supabase.table("ipaddress").insert(data).execute()
         print(f"Data REGISTER (before insert): {data}")
+        response = supabase.table("ipaddress").insert(data).execute()
         print(f"Response from Supabase: {response.data}")
         return response.data
 
@@ -37,6 +43,20 @@ class IpAddressService:
         print(f"Response from database: {response.data}")
         return response.data
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     #---------------------------
     @staticmethod
     def register_user_ip_data(data):
@@ -51,3 +71,17 @@ class IpAddressService:
         print(f"Validating unique_id: {unique_id} and user_agent: {user_agent}")
         print(f"Response from database: {response.data}")
         return response.data
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
