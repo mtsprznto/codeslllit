@@ -4,8 +4,9 @@ from config import supabase
 class IpAddressService:
     @staticmethod
     def register_ip(data):
-        print(f"Data IP REGISTER: {data}")
+        print(f"Data IP REGISTER (before insert): {data}")
         response = supabase.table("ipaddress").insert(data).execute()
+        print(f"Response from Supabase: {response.data}")
         return response.data
     
     @staticmethod
