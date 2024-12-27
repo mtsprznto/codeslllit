@@ -46,7 +46,7 @@ if not cookies.ready():
 if 'unique_id' not in cookies:
     cookies['unique_id'] = str(uuid.uuid4())
     cookies.save()
-    
+
 unique_id = cookies['unique_id']
 
 
@@ -88,13 +88,6 @@ def registro():
                 
                 try:
                     
-                    
-
-                    
-
-                    
-
-                    
                     # Validar si el correo ya estan en la base de datos
                     if UserService.validate_user_email(correo):
                         st.error("The email is already registered", icon="📧")
@@ -107,11 +100,6 @@ def registro():
                             st.error("Sorry, you have already redeemed a code.", icon="😢")
                             st.markdown(f"In case you want to recover your code send an email to: {CORREO}")
 
-
-                        # Validar si la IP ya está en la base de datos
-                        # if not is_unique_ip(ip_address):
-                        #     st.error("Sorry, you have already redeemed a code.", icon="😢")
-                        #     st.markdown(f"In case you want to recover your code send an email to: {CORREO}")
 
                         else:
                             
