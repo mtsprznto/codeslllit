@@ -21,6 +21,8 @@ class CodesService:
     @staticmethod
     def delete_code(code):
         try:
+            print(f"Deleting code: {code}")  # Registro de depuración
             supabase.table('codes').delete().eq('code', code).execute()
+            print(f"Code {code} deleted successfully")  # Registro de depuración
         except Exception as e:
             print(f"Error deleting code: {e}")
