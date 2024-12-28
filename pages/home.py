@@ -95,7 +95,7 @@ st.divider()
 
 
 st.subheader("Preview")
-# LINK SOUNDCLOUD
+# LINK SOUNDCLOUD PREVIEW
 st.markdown("""
 <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https:/w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1931462323&color=%23210d0dauto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=falseshow_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break:anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;font-family: Roboto,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.comlllit_3" title="LLLIT" target="_blank" style="color: #cccccc; text-decoration: none;">LLLIT</a>· <a href="https://soundcloud.com/lllit_3/sets/silencio-esperado" title="Silencio Esperado[Preview] | Released" target="_blank" style="color: #cccccc; text-decoration: none;">SilencioEsperado [Preview] | Released</a></div>
 """, unsafe_allow_html=True)
