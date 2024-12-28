@@ -5,4 +5,33 @@
     font-family: 'Poppins', 'Roboto',sans-serif;
 }
 
+ol.tracklist {
+    list-style-type: none;
+    padding: 0;
+    font-size: 0.8rem; /* Ajusta el tamaño de la fuente según tus necesidades */
+    margin:1rem 0rem;/* Cambia el color de la fuente */
+}
+ol.tracklist li {
+    margin-bottom: 10px; /* Espacio entre los elementos de la lista */
+    padding: 0;
+    margin: 0;
+}
+
+
+
+
+
+
+.st-emotion-cache-173c3jb a{
+    text-decoration:none;
+}
+.link_support {
+    font-size: 0.9rem;
+    outline: none;
+    text-decoration: none; /* Quitar la línea debajo del enlace */
+    color: inherit; /* Mantener el color del texto */
+}
+.imagen-album{
+    border-radius: 5px;
+}
 

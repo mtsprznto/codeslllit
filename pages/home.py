@@ -34,13 +34,47 @@ enlace_aftherneo = link_button_html(link="https://soundcloud.com/neonites",titul
 
 
 
-st.image("assets/banner.png", width=720, channels='RGB')
+st.image("assets/banner.png", width=720, channels='RGB', use_container_width=True)
 
 
 st.divider()
 
-st.image("https://f4.bcbits.com/img/a1653011087_10.jpg")
 
+col1,col2 = st.columns(2, vertical_alignment='top')
+
+with col1:
+    st.markdown(body="""
+<a href="https://lllit3.bandcamp.com/album/silencio-esperado" target="_blank" style="outline:none" tabindex="-1">
+    <img class="imagen-album" src="https://f4.bcbits.com/img/a1653011087_10.jpg" style="display: block; height: auto; border: 0; width: 100%;" width="238" alt="Company logo" title="Company logo" height="auto">
+</a>
+""",unsafe_allow_html=True)
+ 
+with col2:
+    with st.container():
+        st.markdown("""
+<h3>Tracklist</h3>
+<ol class="tracklist">
+    <li>1. Gradientes</li>
+    <li>2. paK.q</li>
+    <li>3. Pull xet</li>
+    <li>4. Pull bud</li>
+    <li>5. Glep</li>
+    <li>6. Frosting Image</li>
+    <li>7. Expectativa Dub</li>
+    <li>8. Dub Niebla</li>
+    <li>9. D-M-O._continue</li>
+    <li>10. D-M-O._</li>
+    <li>11. D-M-O</li>
+    <li>12. Joteo Telepático</li>
+</ol>
+
+
+                                   
+<a class="link_support" href="https://lllit3.bandcamp.com/album/silencio-esperado" src="" target="_blank">Support</a>
+                    
+<br>
+                    """,
+                    unsafe_allow_html=True)
 
 
 
@@ -60,6 +94,13 @@ st.divider()
 
 
 
+st.subheader("Preview")
+# LINK SOUNDCLOUD
+st.markdown("""
+<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https:/w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1931462323&color=%23210d0dauto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=falseshow_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break:anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;font-family: Roboto,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.comlllit_3" title="LLLIT" target="_blank" style="color: #cccccc; text-decoration: none;">LLLIT</a>· <a href="https://soundcloud.com/lllit_3/sets/silencio-esperado" title="Silencio Esperado[Preview] | Released" target="_blank" style="color: #cccccc; text-decoration: none;">SilencioEsperado [Preview] | Released</a></div>
+""", unsafe_allow_html=True)
+
+st.divider()
 
 st.subheader("Creditos:")
 
@@ -91,19 +132,22 @@ st.markdown("""
 
 
 st.divider()
-st.subheader("PREVIEW")
-
-st.markdown("""
-<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1931462323&color=%23210d0d&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Roboto,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lllit_3" title="LLLIT" target="_blank" style="color: #cccccc; text-decoration: none;">LLLIT</a> · <a href="https://soundcloud.com/lllit_3/sets/silencio-esperado" title="Silencio Esperado [Preview] | Released" target="_blank" style="color: #cccccc; text-decoration: none;">Silencio Esperado [Preview] | Released</a></div>
-""", unsafe_allow_html=True)
 
 
 
 
 
 
-st.divider()
-st.page_link(page="pages/registro.py", icon="🎁", label="Get Promotional Code")
+
+
+col1,col2,col3 = st.columns(3)
+with col1:
+    pass
+with col2:
+    st.page_link(page="pages/registro.py", icon="🎁", label="Get Promotional Code")
+    
+with col3:
+    pass
 
 
 
