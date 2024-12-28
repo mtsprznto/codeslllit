@@ -118,11 +118,13 @@ def registro():
 
                                 # Registrar al usuario en la base de datos
                                 UserService.register_user(user.to_dict())
-                                
+
                                 # Enviar el código por correo electrónico
                                 enviar_correo(correo, code.code)
-                                
-                                
+
+                                #Eliminar el codigo de la base de datos
+                                CodesService.delete_code(code=code.code)
+
                                 st.balloons()   
                                 codes_respuesta.success(f"Thank you for registering", icon="🚀")
 
@@ -130,9 +132,8 @@ def registro():
 
                                 st.link_button("Redeem your code here!", "https://lllit3.bandcamp.com/yum")
 
-                                #Eliminar el codigo de la base de datos
-                                CodesService.delete_code(code.code)
-
+                                
+                                
                             else:
                                 codes_respuesta.error("Sorry, there are no more codes available.", icon="😢")
                 
