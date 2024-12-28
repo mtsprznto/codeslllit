@@ -107,24 +107,17 @@ def registro():
                             # Obtener un código de Bandcamp
                             code = CodesService.get_code()
                             
+                            IpAddressService.register_user_ip_data({"unique_id": unique_id})
+
+                            
 
                             if code:
-                                
-                                # Guardar la información de la IP canjeada
-                                #save_redeemed_ip(ip_address)
-
-                                # Guardo la ip en mi base de datos
-                                #IpAddressService.register_ip({"ip_address": ip_address})
-                                IpAddressService.register_user_ip_data({"unique_id": unique_id})
-
-
                                 
                                 # Crear una instancia de la clase User
                                 user = User(nombre, apellido, telefono, correo, pais, comentario, code.code)
 
                                 # Registrar al usuario en la base de datos
                                 UserService.register_user(user.to_dict())
-                                
                                 
                                 # Enviar el código por correo electrónico
                                 enviar_correo(correo, code.code)
