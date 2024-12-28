@@ -163,7 +163,7 @@ st.divider()
 
 st.markdown("## Links")
 
-col1, col2, col3 = st.columns(3)
+col1, col2, col3, col4 = st.columns(4)
 
 
 with col1:
@@ -172,4 +172,5 @@ with col2:
     st.link_button("Bandcamp", BANDCAMP_LINK, use_container_width=True)
 with col3:
     st.link_button("Spotify", SPOTIFY_LINK, use_container_width=True)
-
+with col4:
+    st.link_button("Beatport", BEATPORT_LINK, use_container_width=True)
