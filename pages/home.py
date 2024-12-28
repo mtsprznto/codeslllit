@@ -32,6 +32,8 @@ enlace_aftherneo = link_button_html(link="https://soundcloud.com/neonites",titul
 
 # -----------------------------
 
+
+
 st.image("assets/banner.png", width=720, channels='RGB')
 
 
