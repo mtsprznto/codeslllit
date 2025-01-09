@@ -85,7 +85,7 @@ st.markdown(f"""
 The album is not only a testament to the creativity of LLLIT - who in addition to being the main composer is the creator of the cover art and responsible for all multimedia content - but also to the collaboration with key figures in the art and music world.
 
             
-> releases December 31, 2024</p>
+> releases January 14, 2025</p>
 """, unsafe_allow_html=True)
 
 
@@ -100,6 +100,7 @@ st.markdown("""
 <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1931462323&color=%23210d0d&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lllit_3" title="LLLIT" target="_blank" style="color: #cccccc; text-decoration: none;">LLLIT</a> · <a href="https://soundcloud.com/lllit_3/sets/silencio-esperado" title="Silencio Esperado [Preview] | Released" target="_blank" style="color: #cccccc; text-decoration: none;">Silencio Esperado [Preview] | Released</a></div>
 """, unsafe_allow_html=True)
 
+#------------------------------
 st.divider()
 
 st.subheader("Creditos:")
